@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Домашние задания{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Домашние задания</h1>
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Класс</th>
+                            <th>Предмет</th>
+                            <th>Задание</th>
+                            <th>Срок сдачи</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for hw in homework %}
+                        <tr>
+                            <td>{{ hw.school_class.name }}</td>
+                            <td>{{ hw.subject_rel.name }}</td>
+                            <td>{{ hw.task }}</td>
+                            <td>{{ hw.deadline.strftime('%d.%m.%Y') }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
